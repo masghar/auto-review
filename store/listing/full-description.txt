@@ -1,0 +1,27 @@
+Reply to every Google Business Profile review in seconds — powered by Gemini AI.
+
+GMB Review AI injects a clean side panel directly into your Google Business Profile reviews page. No API approval needed, no data sent to our servers, no subscription. Just bring your own free Gemini API key and go.
+
+HOW IT WORKS
+- Click Scan Reviews — all pending reviews load instantly in the side panel
+- Gemini generates a personalised, on-brand reply for each one
+- Click Post — done. Or hit Reply All to handle every review at once, across all pages.
+
+KEY FEATURES
+- Multi-profile: manage multiple business locations from one extension
+- Bulk Reply All with auto-pagination — handles dozens of reviews completely hands-free
+- Tone control: Friendly, Professional, Concise, Empathetic, Enthusiastic
+- Per-business SEO keywords woven naturally into every reply
+- Custom instructions per profile (e.g. "always mention our loyalty program")
+- Activity log shows every step in real time — full transparency
+
+PERFECT FOR
+Restaurants, cafes, salons, spas, hotels, clinics, IT firms, interior designers, real estate agencies — anyone managing Google Business Profile reviews who wants to save hours every week.
+
+COMPLETELY FREE
+Uses Google's Gemini 2.5 Flash model. The free tier gives you 15 requests/min and 1,500 requests/day — more than enough for most small and medium businesses. Bring your own API key from Google AI Studio.
+
+PRIVACY FIRST
+Your Gemini API key and all business data are stored only on your own device using Chrome's local storage. No data is ever sent to our servers. We collect absolutely nothing.
+
+Install free → Open your Google Business Profile reviews → Click Reply All → Done.

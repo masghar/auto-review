@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="560" viewBox="0 0 1400 560">
+  <defs>
+    <style>text { font-family: 'Google Sans', Roboto, Arial, sans-serif; }</style>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#3730A3"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#F8F9FF"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#1E1B6A" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="560" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="680" cy="0" r="300" fill="white" opacity="0.03"/>
+  <circle cx="100" cy="560" r="200" fill="white" opacity="0.04"/>
+
+  <!-- ══ LEFT HALF: Brand + features ══ -->
+
+  <!-- Large star icon -->
+  <polygon points="80,52 89,78 116,79 94,96 102,122 80,107 58,122 66,96 44,79 71,78" fill="white" opacity="0.95"/>
+
+  <!-- Extension name -->
+  <text x="80" y="170" fill="white" font-size="52" font-weight="700" letter-spacing="-1">GMB Review AI</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="218" fill="white" font-size="22" opacity="0.85">Auto-reply to Google Business Profile reviews</text>
+  <text x="80" y="248" fill="white" font-size="16" opacity="0.6">Powered by Gemini 2.5 Flash · Completely free · No subscription</text>
+
+  <!-- Feature pills -->
+  <rect x="80" y="278" width="148" height="38" rx="19" fill="white" opacity="0.2"/>
+  <text x="154" y="302" fill="white" font-size="14" font-weight="600" text-anchor="middle">Multi-Profile</text>
+
+  <rect x="244" y="278" width="148" height="38" rx="19" fill="white" opacity="0.2"/>
+  <text x="318" y="302" fill="white" font-size="14" font-weight="600" text-anchor="middle">Bulk Reply All</text>
+
+  <rect x="408" y="278" width="148" height="38" rx="19" fill="white" opacity="0.2"/>
+  <text x="482" y="302" fill="white" font-size="14" font-weight="600" text-anchor="middle">Tone Control</text>
+
+  <rect x="572" y="278" width="148" height="38" rx="19" fill="white" opacity="0.2"/>
+  <text x="646" y="302" fill="white" font-size="14" font-weight="600" text-anchor="middle">SEO Keywords</text>
+
+  <!-- Stats / social proof row -->
+  <text x="80" y="380" fill="white" font-size="15" opacity="0.55">Free · Open Source · Zero data collection · Works on all GBP accounts</text>
+
+  <!-- Gemini badge -->
+  <rect x="80" y="400" width="220" height="40" rx="8" fill="white" opacity="0.12"/>
+  <text x="190" y="425" fill="white" font-size="15" font-weight="600" text-anchor="middle">✦ Powered by Gemini AI</text>
+
+  <!-- ══ RIGHT HALF: Browser chrome mockup ══ -->
+
+  <!-- Browser window outer frame -->
+  <rect x="760" y="44" width="600" height="472" rx="14" fill="white" filter="url(#shadow)" opacity="0.97"/>
+
+  <!-- Browser top bar -->
+  <rect x="760" y="44" width="600" height="44" rx="14" fill="#E5E7EB"/>
+  <rect x="760" y="66" width="600" height="22" fill="#E5E7EB"/>
+
+  <!-- Traffic light dots -->
+  <circle cx="790" cy="66" r="7" fill="#FC5151"/>
+  <circle cx="814" cy="66" r="7" fill="#FBBC04"/>
+  <circle cx="838" cy="66" r="7" fill="#34C759"/>
+
+  <!-- URL bar -->
+  <rect x="860" y="55" width="340" height="22" rx="11" fill="white" opacity="0.8"/>
+  <text x="1030" y="70" fill="#6B7280" font-size="11" text-anchor="middle">business.google.com/reviews</text>
+
+  <!-- Page content area background -->
+  <rect x="760" y="88" width="600" height="428" fill="#F8F9FA"/>
+
+  <!-- ── Google page area (left 380px of browser) ── -->
+  <!-- Page header -->
+  <rect x="760" y="88" width="380" height="48" fill="white"/>
+  <text x="780" y="118" fill="#1A1D23" font-size="13" font-weight="700">Reviews</text>
+  <rect x="760" y="135" width="380" height="1" fill="#E5E7EB"/>
+
+  <!-- Review card 1 (grayed out — replied) -->
+  <rect x="772" y="148" width="356" height="76" rx="8" fill="white"/>
+  <circle cx="794" cy="168" r="10" fill="#E5E7EB"/>
+  <rect x="812" y="160" width="90" height="8" rx="4" fill="#E5E7EB"/>
+  <rect x="812" y="173" width="60" height="6" rx="3" fill="#F3F4F6"/>
+  <rect x="780" y="185" width="200" height="6" rx="3" fill="#F3F4F6"/>
+  <rect x="780" y="196" width="150" height="6" rx="3" fill="#F3F4F6"/>
+  <rect x="780" y="207" width="50" height="14" rx="7" fill="#D1FAE5"/>
+  <text x="805" y="218" fill="#059669" font-size="8" font-weight="700" text-anchor="middle">✓ Posted</text>
+
+  <!-- Review card 2 (pending) -->
+  <rect x="772" y="234" width="356" height="76" rx="8" fill="white"/>
+  <circle cx="794" cy="254" r="10" fill="#E5E7EB"/>
+  <rect x="812" y="246" width="80" height="8" rx="4" fill="#E5E7EB"/>
+  <rect x="812" y="259" width="55" height="6" rx="3" fill="#F3F4F6"/>
+  <rect x="780" y="271" width="210" height="6" rx="3" fill="#F3F4F6"/>
+  <rect x="780" y="282" width="170" height="6" rx="3" fill="#F3F4F6"/>
+  <rect x="870" y="277" width="50" height="22" rx="6" fill="#4F46E5"/>
+  <text x="895" y="292" fill="white" font-size="9" font-weight="700" text-anchor="middle">Generate</text>
+
+  <!-- Review card 3 (pending) -->
+  <rect x="772" y="320" width="356" height="76" rx="8" fill="white"/>
+  <circle cx="794" cy="340" r="10" fill="#E5E7EB"/>
+  <rect x="812" y="332" width="100" height="8" rx="4" fill="#E5E7EB"/>
+  <rect x="812" y="345" width="65" height="6" rx="3" fill="#F3F4F6"/>
+  <rect x="780" y="357" width="190" height="6" rx="3" fill="#F3F4F6"/>
+  <rect x="780" y="368" width="140" height="6" rx="3" fill="#F3F4F6"/>
+  <rect x="870" y="363" width="50" height="22" rx="6" fill="#4F46E5"/>
+  <text x="895" y="378" fill="white" font-size="9" font-weight="700" text-anchor="middle">Generate</text>
+
+  <!-- ── GMB AI Panel (right 220px of browser) ── -->
+  <rect x="1140" y="88" width="220" height="428" fill="white" rx="0"/>
+  <rect x="1140" y="88" width="1" height="428" fill="#E5E7EB"/>
+
+  <!-- Panel header -->
+  <rect x="1140" y="88" width="220" height="44" fill="#4F46E5"/>
+  <polygon points="1155,103 1158,112 1167,112.2 1160.5,118 1162.5,127 1155,122.3 1147.5,127 1149.5,118 1143,112.2 1152,112" fill="white" transform="scale(0.8) translate(280,15)"/>
+  <text x="1170" y="115" fill="white" font-size="12" font-weight="700">Review AI</text>
+  <text x="1170" y="126" fill="white" font-size="8" opacity="0.7">v6.1 · 17 Apr</text>
+
+  <!-- Tab bar -->
+  <rect x="1140" y="132" width="220" height="32" fill="#F8F9FA"/>
+  <rect x="1140" y="158" width="110" height="2" fill="#4F46E5"/>
+  <text x="1195" y="151" fill="#4F46E5" font-size="11" font-weight="700" text-anchor="middle">Reviews</text>
+  <text x="1305" y="151" fill="#9CA3AF" font-size="11" text-anchor="middle">Settings</text>
+
+  <!-- Scan + Reply All buttons -->
+  <rect x="1150" y="170" width="88" height="24" rx="6" fill="#4F46E5"/>
+  <text x="1194" y="186" fill="white" font-size="10" font-weight="600" text-anchor="middle">Scan Reviews</text>
+  <rect x="1248" y="170" width="72" height="24" rx="6" fill="#EEF2FF"/>
+  <text x="1284" y="186" fill="#4F46E5" font-size="10" font-weight="600" text-anchor="middle">Reply All</text>
+
+  <!-- Status bar -->
+  <text x="1155" y="210" fill="#059669" font-size="9">✓ 3 reviews found — 2 pending</text>
+
+  <!-- Panel review card 1 (replied) -->
+  <rect x="1148" y="218" width="204" height="56" rx="6" fill="#F9FAFB"/>
+  <text x="1158" y="232" fill="#1A1D23" font-size="10" font-weight="700">Amna Raza</text>
+  <text x="1230" y="232" fill="#FBBF24" font-size="9">★★★★★</text>
+  <rect x="1157" y="237" width="52" height="12" rx="6" fill="#DDD6FE"/>
+  <text x="1183" y="247" fill="#5B21B6" font-size="8" text-anchor="middle">Serenity Spa</text>
+  <text x="1158" y="257" fill="#6B7280" font-size="9">Amazing service, love this place!</text>
+  <rect x="1158" y="263" width="40" height="12" rx="6" fill="#D1FAE5"/>
+  <text x="1178" y="272" fill="#059669" font-size="8" text-anchor="middle">✓ Posted</text>
+
+  <!-- Panel review card 2 (active - generating) -->
+  <rect x="1148" y="282" width="204" height="56" rx="6" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1"/>
+  <text x="1158" y="296" fill="#1A1D23" font-size="10" font-weight="700">Bilal Khan</text>
+  <text x="1230" y="296" fill="#FBBF24" font-size="9">★★★★</text>
+  <rect x="1157" y="301" width="52" height="12" rx="6" fill="#DDD6FE"/>
+  <text x="1183" y="311" fill="#5B21B6" font-size="8" text-anchor="middle">House of Salons</text>
+  <text x="1158" y="321" fill="#6B7280" font-size="9">Great haircut, very professional...</text>
+  <rect x="1158" y="327" width="64" height="12" rx="6" fill="#4F46E5"/>
+  <text x="1190" y="336" fill="white" font-size="8" text-anchor="middle">⬡ Generating...</text>
+
+  <!-- Panel review card 3 (pending) -->
+  <rect x="1148" y="346" width="204" height="56" rx="6" fill="#F9FAFB"/>
+  <text x="1158" y="360" fill="#1A1D23" font-size="10" font-weight="700">Sara Malik</text>
+  <text x="1230" y="360" fill="#FBBF24" font-size="9">★★★★★</text>
+  <rect x="1157" y="365" width="52" height="12" rx="6" fill="#DDD6FE"/>
+  <text x="1183" y="375" fill="#5B21B6" font-size="8" text-anchor="middle">Serenity Spa</text>
+  <text x="1158" y="385" fill="#6B7280" font-size="9">Best spa in Islamabad by far!</text>
+  <rect x="1158" y="391" width="46" height="12" rx="6" fill="#E5E7EB"/>
+  <text x="1181" y="400" fill="#6B7280" font-size="8" text-anchor="middle">Generate</text>
+
+  <!-- ══ Bottom CTA text ══ -->
+  <text x="80" y="500" fill="white" font-size="18" font-weight="700" opacity="0.9">Free to install · Bring your own Gemini API key · Start replying in 2 minutes</text>
+</svg>

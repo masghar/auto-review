@@ -1,0 +1,8 @@
+Chrome Web Store Category: Productivity
+
+Rationale: "Productivity" is the correct top-level category for business workflow automation tools on the Chrome Web Store. Do not use "Social & Communication" (implies personal social networks) or "Developer Tools" (implies coding tools). Productivity surfaces this extension to the widest relevant audience of business owners and managers.
+
+Primary Language: English (United States)
+Secondary Language (optional): You may also add listings for Urdu, Arabic, or Hindi if targeting South Asian / MENA markets — the extension UI is English-only but the audience is multilingual.
+
+Store Primary Color (hex): #4F46E5

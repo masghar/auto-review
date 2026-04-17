@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Screenshot 3 — Settings & Multi-Profile</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1280px; height: 800px; overflow: hidden; font-family: 'Google Sans', Roboto, Arial, sans-serif; display: flex; flex-direction: column; background: #F1F3F4; }
+  .topbar { height: 64px; background: white; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; padding: 0 24px; gap: 16px; flex-shrink: 0; }
+  .topbar .logo { font-size: 18px; font-weight: 700; color: #1A73E8; }
+  .topbar .nav { display: flex; gap: 8px; margin-left: 32px; }
+  .topbar .nav a { padding: 6px 14px; border-radius: 20px; font-size: 13px; color: #5F6368; text-decoration: none; }
+  .topbar .nav a.active { background: #E8F0FE; color: #1A73E8; font-weight: 600; }
+  .main { display: flex; flex: 1; overflow: hidden; }
+  .google-area { flex: 1; padding: 24px; overflow-y: auto; background: #F8F9FA; display: flex; align-items: center; justify-content: center; }
+  .placeholder { text-align: center; color: #9CA3AF; }
+  .placeholder svg { opacity: 0.3; margin-bottom: 12px; }
+  .placeholder p { font-size: 14px; }
+
+  /* AI Panel */
+  .ai-panel { width: 370px; background: white; border-left: 1px solid #E5E7EB; display: flex; flex-direction: column; flex-shrink: 0; overflow: hidden; }
+  .panel-head { background: #4F46E5; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .panel-logo { display: flex; align-items: center; gap: 8px; }
+  .panel-logo span { color: white; font-size: 14px; font-weight: 700; }
+  .panel-logo .version { font-size: 9px; opacity: 0.6; font-weight: 400; margin-left: 4px; }
+  .panel-tabs { display: flex; border-bottom: 1px solid #E5E7EB; flex-shrink: 0; }
+  .panel-tab { flex: 1; padding: 10px; text-align: center; font-size: 13px; font-weight: 600; color: #9CA3AF; cursor: pointer; border-bottom: 2px solid transparent; }
+  .panel-tab.active { color: #4F46E5; border-bottom-color: #4F46E5; }
+  .settings-body { flex: 1; overflow-y: auto; padding: 14px; }
+  .field-group { margin-bottom: 14px; }
+  .field-label { font-size: 11px; font-weight: 600; color: #6B7280; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .field-input { width: 100%; border: 1px solid #E5E7EB; border-radius: 8px; padding: 8px 10px; font-size: 12px; color: #374151; font-family: inherit; background: white; }
+  .field-input.key { font-family: monospace; letter-spacing: 2px; color: #6B7280; }
+  .tone-select { width: 100%; border: 1px solid #E5E7EB; border-radius: 8px; padding: 8px 10px; font-size: 12px; color: #374151; }
+  .section-header { display: flex; align-items: center; justify-content: space-between; margin: 16px 0 10px; }
+  .section-title { font-size: 12px; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: 0.06em; }
+  .add-btn { background: #EEF2FF; color: #4F46E5; border: none; border-radius: 6px; padding: 5px 10px; font-size: 11px; font-weight: 600; cursor: pointer; }
+  .profile-card { border: 1px solid #E5E7EB; border-radius: 8px; overflow: hidden; margin-bottom: 8px; }
+  .profile-head { background: #F9FAFB; padding: 10px 12px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+  .profile-name { font-size: 13px; font-weight: 700; color: #1A1D23; }
+  .profile-toggle { font-size: 11px; color: #6B7280; }
+  .profile-body { padding: 12px; border-top: 1px solid #E5E7EB; }
+  .pfield { margin-bottom: 8px; }
+  .pfield-label { font-size: 10px; font-weight: 600; color: #9CA3AF; text-transform: uppercase; margin-bottom: 3px; }
+  .pfield-input { width: 100%; border: 1px solid #E5E7EB; border-radius: 6px; padding: 6px 8px; font-size: 11px; color: #374151; font-family: inherit; }
+  .save-btn { width: 100%; background: #4F46E5; color: white; border: none; border-radius: 8px; padding: 11px 0; font-size: 13px; font-weight: 700; cursor: pointer; margin-top: 8px; }
+  .screenshot-title { position: fixed; top: 0; left: 0; right: 380px; background: rgba(79,70,229,0.92); color: white; text-align: center; padding: 8px; font-size: 15px; font-weight: 700; z-index: 100; }
+  .screenshot-caption { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(26,29,35,0.88); color: white; text-align: center; padding: 8px 20px; font-size: 12px; z-index: 100; }
+</style>
+</head>
+<body>
+
+<div class="screenshot-title">Manage multiple business locations from one extension</div>
+
+<div class="topbar">
+  <div class="logo">Google Business Profile</div>
+  <div class="nav">
+    <a href="#">Home</a>
+    <a href="#" class="active">Reviews</a>
+    <a href="#">Posts</a>
+    <a href="#">Insights</a>
+  </div>
+</div>
+
+<div class="main">
+  <div class="google-area">
+    <div class="placeholder">
+      <svg width="64" height="64" viewBox="0 0 22 22"><polygon points="11,1 13.8,8 21,8.3 15.5,13 17.6,20 11,16.3 4.4,20 6.5,13 1,8.3 8.2,8" fill="#9CA3AF"/></svg>
+      <p>Configure your business profiles<br>in the Settings panel →</p>
+    </div>
+  </div>
+
+  <div class="ai-panel">
+    <div class="panel-head">
+      <div class="panel-logo">
+        <svg width="14" height="14" viewBox="0 0 22 22"><polygon points="11,1 13.8,8 21,8.3 15.5,13 17.6,20 11,16.3 4.4,20 6.5,13 1,8.3 8.2,8" fill="white"/></svg>
+        <span>Review AI <span class="version">v6.1 · 17 Apr</span></span>
+      </div>
+    </div>
+    <div class="panel-tabs">
+      <div class="panel-tab">Reviews</div>
+      <div class="panel-tab active">Settings</div>
+    </div>
+    <div class="settings-body">
+
+      <div class="field-group">
+        <div class="field-label">Gemini API Key</div>
+        <input class="field-input key" value="AIza••••••••••••••••••••••••••••" readonly>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label">Default Reply Tone</div>
+        <select class="tone-select">
+          <option selected>Friendly</option>
+          <option>Professional</option>
+          <option>Concise</option>
+          <option>Empathetic</option>
+          <option>Enthusiastic</option>
+        </select>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Business Profiles</div>
+        <button class="add-btn">+ Add Profile</button>
+      </div>
+
+      <!-- Profile 1 -->
+      <div class="profile-card">
+        <div class="profile-head">
+          <div class="profile-name">Serenity Spa – F7</div>
+          <div class="profile-toggle">▲ Close</div>
+        </div>
+        <div class="profile-body">
+          <div class="pfield"><div class="pfield-label">Business Name</div><input class="pfield-input" value="Serenity Spa" readonly></div>
+          <div class="pfield"><div class="pfield-label">Business Type</div><input class="pfield-input" value="luxury day spa" readonly></div>
+          <div class="pfield"><div class="pfield-label">City</div><input class="pfield-input" value="Islamabad" readonly></div>
+          <div class="pfield"><div class="pfield-label">Services</div><input class="pfield-input" value="massage, facial, manicure, bridal packages" readonly></div>
+          <div class="pfield"><div class="pfield-label">SEO Keywords</div><input class="pfield-input" value="best spa Islamabad, F7 spa, luxury spa" readonly></div>
+          <div class="pfield"><div class="pfield-label">Custom Instructions</div><input class="pfield-input" value="Always mention our loyalty card program." readonly></div>
+        </div>
+      </div>
+
+      <!-- Profile 2 -->
+      <div class="profile-card">
+        <div class="profile-head">
+          <div class="profile-name">House of Salons – F7</div>
+          <div class="profile-toggle">▲ Close</div>
+        </div>
+        <div class="profile-body">
+          <div class="pfield"><div class="pfield-label">Business Name</div><input class="pfield-input" value="House of Salons" readonly></div>
+          <div class="pfield"><div class="pfield-label">Business Type</div><input class="pfield-input" value="hair salon" readonly></div>
+          <div class="pfield"><div class="pfield-label">City</div><input class="pfield-input" value="Islamabad" readonly></div>
+          <div class="pfield"><div class="pfield-label">Services</div><input class="pfield-input" value="haircut, colour, bridal makeup, keratin" readonly></div>
+          <div class="pfield"><div class="pfield-label">SEO Keywords</div><input class="pfield-input" value="best salon Islamabad, hair salon F7" readonly></div>
+          <div class="pfield"><div class="pfield-label">Custom Instructions</div><input class="pfield-input" value="Mention our online booking system." readonly></div>
+        </div>
+      </div>
+
+      <button class="save-btn">💾 Save All Settings</button>
+    </div>
+  </div>
+</div>
+
+<div class="screenshot-caption">Add unlimited business profiles. Each profile auto-matches to reviews — a purple badge confirms which profile was matched.</div>
+
+</body>
+</html>

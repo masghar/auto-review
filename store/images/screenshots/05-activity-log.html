@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Screenshot 5 — Activity Log</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1280px; height: 800px; overflow: hidden; font-family: 'Google Sans', Roboto, Arial, sans-serif; display: flex; flex-direction: column; background: #F1F3F4; }
+  .topbar { height: 64px; background: white; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; padding: 0 24px; gap: 16px; flex-shrink: 0; }
+  .topbar .logo { font-size: 18px; font-weight: 700; color: #1A73E8; }
+  .topbar .nav { display: flex; gap: 8px; margin-left: 32px; }
+  .topbar .nav a { padding: 6px 14px; border-radius: 20px; font-size: 13px; color: #5F6368; text-decoration: none; }
+  .topbar .nav a.active { background: #E8F0FE; color: #1A73E8; font-weight: 600; }
+  .main { display: flex; flex: 1; overflow: hidden; }
+  .google-area { flex: 1; padding: 24px; background: #F8F9FA; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
+  .page-title { font-size: 22px; font-weight: 600; color: #202124; }
+  .review-card { background: white; border-radius: 10px; padding: 14px 18px; border: 1px solid #E5E7EB; }
+  .review-card.replied { opacity: 0.7; }
+  .rh { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .avatar { width: 32px; height: 32px; border-radius: 50%; background: #E0E7FF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 11px; color: #4F46E5; flex-shrink: 0; }
+  .rname { font-size: 13px; font-weight: 600; color: #202124; }
+  .rmeta { font-size: 11px; color: #5F6368; }
+  .stars { color: #FBBC04; font-size: 12px; margin-left: auto; }
+  .rtext { font-size: 12px; color: #374151; }
+  .replied-tag { display: inline-block; background: #D1FAE5; color: #059669; border-radius: 10px; padding: 1px 8px; font-size: 10px; font-weight: 700; margin-top: 4px; }
+
+  /* AI Panel */
+  .ai-panel { width: 370px; background: white; border-left: 1px solid #E5E7EB; display: flex; flex-direction: column; flex-shrink: 0; overflow: hidden; }
+  .panel-head { background: #4F46E5; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .panel-logo { display: flex; align-items: center; gap: 8px; }
+  .panel-logo span { color: white; font-size: 14px; font-weight: 700; }
+  .panel-logo .version { font-size: 9px; opacity: 0.6; font-weight: 400; margin-left: 4px; }
+  .panel-tabs { display: flex; border-bottom: 1px solid #E5E7EB; flex-shrink: 0; }
+  .panel-tab { flex: 1; padding: 10px; text-align: center; font-size: 13px; font-weight: 600; color: #9CA3AF; border-bottom: 2px solid transparent; }
+  .panel-tab.active { color: #4F46E5; border-bottom-color: #4F46E5; }
+  .panel-body { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; }
+  .panel-actions { display: flex; gap: 8px; margin-bottom: 8px; flex-shrink: 0; }
+  .btn-primary { flex: 1; background: #4F46E5; color: white; border: none; border-radius: 8px; padding: 9px 0; font-size: 13px; font-weight: 600; }
+  .btn-secondary { flex: 1; background: #EEF2FF; color: #4F46E5; border: none; border-radius: 8px; padding: 9px 0; font-size: 13px; font-weight: 600; }
+  .status-bar { font-size: 12px; color: #059669; background: #ECFDF5; padding: 6px 10px; border-radius: 6px; margin-bottom: 8px; font-weight: 600; flex-shrink: 0; }
+  /* Activity log section */
+  .log-header { display: flex; align-items: center; justify-content: space-between; padding: 8px 0 6px; flex-shrink: 0; }
+  .log-title { font-size: 12px; font-weight: 700; color: #374151; display: flex; align-items: center; gap: 6px; }
+  .log-badge { background: #4F46E5; color: white; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 700; }
+  .log-clear { font-size: 10px; color: #9CA3AF; cursor: pointer; }
+  .log-body { flex: 1; background: #111827; border-radius: 8px; padding: 10px; overflow-y: auto; font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; font-size: 10.5px; line-height: 1.8; }
+  .log-line { display: flex; gap: 8px; }
+  .log-time { color: #6B7280; flex-shrink: 0; }
+  .log-ok { color: #10B981; }
+  .log-info { color: #60A5FA; }
+  .log-warn { color: #FBBF24; }
+  .log-arrow { color: #A78BFA; }
+  .screenshot-title { position: fixed; top: 0; left: 0; right: 380px; background: rgba(79,70,229,0.92); color: white; text-align: center; padding: 8px; font-size: 15px; font-weight: 700; z-index: 100; }
+  .screenshot-caption { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(26,29,35,0.88); color: white; text-align: center; padding: 8px 20px; font-size: 12px; z-index: 100; }
+</style>
+</head>
+<body>
+
+<div class="screenshot-title">Full transparency — every step logged in real time</div>
+
+<div class="topbar">
+  <div class="logo">Google Business Profile</div>
+  <div class="nav">
+    <a href="#">Home</a>
+    <a href="#" class="active">Reviews</a>
+    <a href="#">Posts</a>
+  </div>
+</div>
+
+<div class="main">
+  <div class="google-area">
+    <div class="page-title">Reviews</div>
+    <div class="review-card replied">
+      <div class="rh"><div class="avatar">SA</div><div><div class="rname">Sarah Ahmed</div><div class="rmeta">5 weeks ago · Serenity Spa</div></div><div class="stars">★★★★★</div></div>
+      <div class="rtext">Amazing experience! Will definitely come back again.</div>
+      <div class="replied-tag">✓ Replied</div>
+    </div>
+    <div class="review-card replied">
+      <div class="rh"><div class="avatar" style="background:#FEF3C7;color:#D97706">NA</div><div><div class="rname">Naeem Anwar</div><div class="rmeta">4 weeks ago · House of Salons</div></div><div class="stars">★★★★★</div></div>
+      <div class="rtext">Best interior designer in Lahore. Very professional team.</div>
+      <div class="replied-tag">✓ Replied</div>
+    </div>
+    <div class="review-card replied">
+      <div class="rh"><div class="avatar" style="background:#FCE7F3;color:#DB2777">RK</div><div><div class="rname">Rimsha Khokhar</div><div class="rmeta">3 weeks ago · Serenity Spa</div></div><div class="stars">★★★★☆</div></div>
+      <div class="rtext">Great spa experience. The massage was very relaxing.</div>
+      <div class="replied-tag">✓ Replied</div>
+    </div>
+  </div>
+
+  <div class="ai-panel">
+    <div class="panel-head">
+      <div class="panel-logo">
+        <svg width="14" height="14" viewBox="0 0 22 22"><polygon points="11,1 13.8,8 21,8.3 15.5,13 17.6,20 11,16.3 4.4,20 6.5,13 1,8.3 8.2,8" fill="white"/></svg>
+        <span>Review AI <span class="version">v6.1 · 17 Apr</span></span>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;background:rgba(255,255,255,0.15);border-radius:10px;padding:2px 8px">
+        <span style="color:white;font-size:10px;font-weight:700">Log</span>
+        <span style="background:white;color:#4F46E5;border-radius:8px;padding:0 5px;font-size:10px;font-weight:700">12</span>
+      </div>
+    </div>
+    <div class="panel-tabs">
+      <div class="panel-tab active">Reviews</div>
+      <div class="panel-tab">Settings</div>
+    </div>
+    <div class="panel-body">
+      <div class="panel-actions">
+        <button class="btn-primary">⟳ Scan Reviews</button>
+        <button class="btn-secondary">Reply All</button>
+      </div>
+      <div class="status-bar">✓ All 3 reviews replied — Page 1 done</div>
+
+      <div class="log-header">
+        <div class="log-title">Activity Log <span class="log-badge">12</span></div>
+        <div class="log-clear">Clear</div>
+      </div>
+      <div class="log-body">
+        <div class="log-line"><span class="log-time">18:02:40</span><span class="log-ok">✓ Panel ready — v6.1.0</span></div>
+        <div class="log-line"><span class="log-time">18:02:41</span><span class="log-ok">✓ Found 3 reviews, 3 pending</span></div>
+        <div class="log-line"><span class="log-time">18:02:41</span><span class="log-info">Reviewer: "Sarah Ahmed" | Stars: 5 | Biz: "Serenity Spa"</span></div>
+        <div class="log-line"><span class="log-time">18:02:41</span><span class="log-info">Profile matched: Serenity Spa (score 2)</span></div>
+        <div class="log-line"><span class="log-time">18:02:43</span><span class="log-ok">✓ Generated reply (172 chars)</span></div>
+        <div class="log-line"><span class="log-time">18:02:45</span><span class="log-ok">✓ Posted reply for Sarah Ahmed</span></div>
+        <div class="log-line"><span class="log-time">18:02:45</span><span class="log-info">Reviewer: "Naeem Anwar" | Stars: 5 | Biz: "House of Salons"</span></div>
+        <div class="log-line"><span class="log-time">18:02:45</span><span class="log-info">Profile matched: House of Salons (score 2)</span></div>
+        <div class="log-line"><span class="log-time">18:02:47</span><span class="log-ok">✓ Generated reply (158 chars)</span></div>
+        <div class="log-line"><span class="log-time">18:02:49</span><span class="log-ok">✓ Posted reply for Naeem Anwar</span></div>
+        <div class="log-line"><span class="log-time">18:02:49</span><span class="log-info">Reviewer: "Rimsha Khokhar" | Stars: 4 | Biz: "Serenity Spa"</span></div>
+        <div class="log-line"><span class="log-time">18:02:51</span><span class="log-ok">✓ Generated reply (189 chars)</span></div>
+        <div class="log-line"><span class="log-time">18:02:53</span><span class="log-ok">✓ Posted reply for Rimsha Khokhar</span></div>
+        <div class="log-line"><span class="log-time">18:02:53</span><span class="log-arrow">→ Page 1 done. Checking for next page...</span></div>
+        <div class="log-line"><span class="log-time">18:02:56</span><span class="log-warn">✓ All reviews replied across all pages!</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="screenshot-caption">The activity log records every extraction, profile match, generation, and post. Diagnose issues instantly or just watch it work in real time.</div>
+
+</body>
+</html>

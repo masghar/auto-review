@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — GMB Review AI</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 15px; line-height: 1.7; color: #1A1D23; background: #F3F4F8; }
+    header { background: #4F46E5; color: #fff; padding: 28px 24px 24px; }
+    header .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    header .logo svg { flex-shrink: 0; }
+    header .logo span { font-size: 20px; font-weight: 700; }
+    header p { font-size: 13px; opacity: 0.75; }
+    main { max-width: 760px; margin: 32px auto; padding: 0 20px 60px; }
+    .card { background: #fff; border-radius: 12px; padding: 32px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+    h2 { font-size: 17px; font-weight: 700; color: #4F46E5; margin-bottom: 12px; }
+    p { margin-bottom: 10px; color: #374151; }
+    ul { padding-left: 20px; margin-bottom: 10px; color: #374151; }
+    ul li { margin-bottom: 6px; }
+    a { color: #4F46E5; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .highlight { background: #EEF2FF; border-left: 3px solid #4F46E5; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 14px 0; font-size: 14px; color: #3730A3; }
+    footer { text-align: center; font-size: 12px; color: #9CA3AF; padding: 24px 20px; }
+    @media (max-width: 600px) { .card { padding: 20px; } header { padding: 20px 16px; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <svg width="24" height="24" viewBox="0 0 22 22"><polygon points="11,1 13.8,8 21,8.3 15.5,13 17.6,20 11,16.3 4.4,20 6.5,13 1,8.3 8.2,8" fill="#fff"/></svg>
+    <span>GMB Review AI</span>
+  </div>
+  <p>Privacy Policy &mdash; Last updated: 17 April 2026</p>
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>Overview</h2>
+    <p>GMB Review AI is a Chrome extension that generates AI-written replies to your Google Business Profile reviews using Google's Gemini API. This Privacy Policy explains what data the extension handles, how it is used, and your rights.</p>
+    <div class="highlight">The short version: your data never leaves your own browser except to reach Google's Gemini API using <strong>your own API key</strong>. We — the extension developer — collect, store, and see <strong>nothing</strong>.</div>
+  </div>
+
+  <div class="card">
+    <h2>1. Data We Collect</h2>
+    <p>The extension handles the following data, all of which is stored exclusively on your own device:</p>
+    <ul>
+      <li><strong>Gemini API Key</strong> — entered by you in the Settings tab; stored in <code>chrome.storage.local</code> on your device only.</li>
+      <li><strong>Business Profile Configuration</strong> — business name, city, services, SEO keywords, tone preference, and any custom instructions you enter; stored in <code>chrome.storage.local</code> on your device only.</li>
+      <li><strong>Google Business Profile Review Text</strong> — read directly from the DOM of the <code>business.google.com/reviews</code> page you are already viewing in your browser; used transiently to build a prompt for Gemini; never written to disk or transmitted to any developer-operated server.</li>
+    </ul>
+    <p>No other data is collected. The extension does not access your contacts, browsing history, location, files, or any other browser data.</p>
+  </div>
+
+  <div class="card">
+    <h2>2. Data We Do NOT Collect</h2>
+    <ul>
+      <li>We do not operate any server, database, or backend service.</li>
+      <li>We do not collect analytics, crash reports, or telemetry of any kind.</li>
+      <li>We do not require you to create an account or log in to the extension.</li>
+      <li>We do not track which reviews you replied to, what replies were generated, or any usage statistics.</li>
+      <li>We do not collect your name, email address, or any personally identifiable information.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>3. How Data Is Used</h2>
+    <ul>
+      <li><strong>Gemini API Key:</strong> used solely to authenticate outbound requests from your browser to <code>generativelanguage.googleapis.com</code>. It is never read by the developer.</li>
+      <li><strong>Review text + business profile data:</strong> combined into a prompt inside your browser and sent directly to Google's Gemini API using your API key. The generated reply is returned to your browser and displayed in the panel. You review and approve before it is posted.</li>
+      <li><strong>Posting replies:</strong> done entirely through your existing Google Business Profile session in the browser — the extension clicks Google's own native "Reply" button and fills the text field on your behalf. No separate authentication or data transmission occurs.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>4. Data Storage</h2>
+    <p>All settings (API key, business profiles, tone preference) are stored in <strong>Chrome's <code>chrome.storage.local</code></strong>, which is:</p>
+    <ul>
+      <li>Stored locally on your computer, within your Chrome profile.</li>
+      <li>Not synced to Google's cloud servers (unlike <code>chrome.storage.sync</code>).</li>
+      <li>Accessible only by the GMB Review AI extension on your device.</li>
+      <li>Completely inaccessible to the extension developer at any time.</li>
+    </ul>
+    <p>You can delete all stored data at any time by removing the extension from Chrome (<code>chrome://extensions</code> → Remove).</p>
+  </div>
+
+  <div class="card">
+    <h2>5. Third-Party Services</h2>
+    <p>The extension communicates with the following Google-owned services only:</p>
+    <ul>
+      <li><strong>business.google.com</strong> — the Google Business Profile page you are already using. The extension injects a sidebar panel into this page to display and manage your reviews.</li>
+      <li><strong>generativelanguage.googleapis.com</strong> — Google's Gemini API. Your review text and business context are sent to this endpoint using your own API key to generate a reply suggestion.</li>
+    </ul>
+    <p>Your use of the Gemini API is subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API Terms of Service</a>. The extension developer has no relationship with, or access to, data processed by Google's Gemini API.</p>
+    <p>No other third-party services, SDKs, analytics tools, or advertising networks are used.</p>
+  </div>
+
+  <div class="card">
+    <h2>6. Permissions Explained</h2>
+    <ul>
+      <li><strong>storage</strong> — required to save your API key and business profiles in <code>chrome.storage.local</code>.</li>
+      <li><strong>tabs</strong> — used only by the toolbar popup to open <code>business.google.com/reviews</code> when you click "Open Reviews Page".</li>
+      <li><strong>Host permission: business.google.com</strong> — required to inject the review panel sidebar into your Google Business Profile page.</li>
+      <li><strong>Host permission: generativelanguage.googleapis.com</strong> — required so the extension's background service worker can call the Gemini API (browser CORS rules require explicit host permission for service worker fetch calls).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>7. Children's Privacy</h2>
+    <p>GMB Review AI is designed for business owners and professionals. It is not directed at, and does not knowingly collect information from, children under the age of 13 (or under 16 in GDPR jurisdictions). If you believe a child has provided information through this extension, please contact us so we can address the situation.</p>
+  </div>
+
+  <div class="card">
+    <h2>8. Changes to This Policy</h2>
+    <p>If we make material changes to this Privacy Policy, we will update the "Last updated" date at the top of this page. We encourage you to review this page periodically. Continued use of the extension after changes are posted constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <div class="card">
+    <h2>9. Contact</h2>
+    <p>If you have questions, concerns, or requests regarding this Privacy Policy or the extension's data handling, please contact:</p>
+    <p><strong>Muhammad Asghar</strong><br>
+    Email: <a href="mailto:asghar.devops@gmail.com">asghar.devops@gmail.com</a></p>
+    <p>We aim to respond to all enquiries within 5 business days.</p>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2026 Muhammad Asghar &mdash; GMB Review AI &mdash;
+  <a href="mailto:asghar.devops@gmail.com">asghar.devops@gmail.com</a>
+</footer>
+
+</body>
+</html>

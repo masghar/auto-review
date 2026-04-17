@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Screenshot 4 — Reply All in Progress</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1280px; height: 800px; overflow: hidden; font-family: 'Google Sans', Roboto, Arial, sans-serif; display: flex; flex-direction: column; background: #F1F3F4; }
+  .topbar { height: 64px; background: white; border-bottom: 1px solid #E5E7EB; display: flex; align-items: center; padding: 0 24px; gap: 16px; flex-shrink: 0; }
+  .topbar .logo { font-size: 18px; font-weight: 700; color: #1A73E8; }
+  .topbar .nav { display: flex; gap: 8px; margin-left: 32px; }
+  .topbar .nav a { padding: 6px 14px; border-radius: 20px; font-size: 13px; color: #5F6368; text-decoration: none; }
+  .topbar .nav a.active { background: #E8F0FE; color: #1A73E8; font-weight: 600; }
+  .main { display: flex; flex: 1; overflow: hidden; }
+  .google-area { flex: 1; padding: 24px; overflow-y: auto; background: #F8F9FA; }
+  .page-title { font-size: 22px; font-weight: 600; color: #202124; margin-bottom: 6px; }
+  .page-subtitle { font-size: 13px; color: #5F6368; margin-bottom: 20px; }
+  .review-card { background: white; border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; border: 1px solid #E5E7EB; }
+  .review-card.posting { border: 2px solid #F59E0B; box-shadow: 0 0 0 3px #FEF3C7; }
+  .review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .avatar { width: 36px; height: 36px; border-radius: 50%; background: #E0E7FF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: #4F46E5; flex-shrink: 0; }
+  .reviewer-name { font-size: 14px; font-weight: 600; color: #202124; }
+  .review-meta { font-size: 12px; color: #5F6368; margin-top: 2px; }
+  .stars { color: #FBBC04; font-size: 13px; margin-left: auto; }
+  .review-text { font-size: 13px; color: #374151; line-height: 1.5; }
+  .review-replied { margin-top: 8px; font-size: 12px; color: #059669; font-style: italic; background: #F0FDF4; padding: 6px 10px; border-radius: 6px; border-left: 3px solid #10B981; }
+  .posting-indicator { margin-top: 8px; font-size: 12px; color: #D97706; background: #FFFBEB; padding: 6px 10px; border-radius: 6px; border-left: 3px solid #F59E0B; }
+
+  .ai-panel { width: 370px; background: white; border-left: 1px solid #E5E7EB; display: flex; flex-direction: column; flex-shrink: 0; }
+  .panel-head { background: #4F46E5; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; }
+  .panel-logo { display: flex; align-items: center; gap: 8px; }
+  .panel-logo span { color: white; font-size: 14px; font-weight: 700; }
+  .panel-logo .version { font-size: 9px; opacity: 0.6; font-weight: 400; margin-left: 4px; }
+  .panel-tabs { display: flex; border-bottom: 1px solid #E5E7EB; }
+  .panel-tab { flex: 1; padding: 10px; text-align: center; font-size: 13px; font-weight: 600; color: #9CA3AF; border-bottom: 2px solid transparent; }
+  .panel-tab.active { color: #4F46E5; border-bottom-color: #4F46E5; }
+  .panel-body { flex: 1; overflow-y: auto; padding: 12px; }
+  .panel-actions { display: flex; gap: 8px; margin-bottom: 10px; }
+  .btn-scan { flex: 1; background: #E5E7EB; color: #9CA3AF; border: none; border-radius: 8px; padding: 9px 0; font-size: 13px; font-weight: 600; }
+  .btn-stop { flex: 1; background: #FEE2E2; color: #DC2626; border: none; border-radius: 8px; padding: 9px 0; font-size: 13px; font-weight: 700; cursor: pointer; }
+  .tone-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .tone-row label { font-size: 12px; color: #6B7280; }
+  .tone-row select { font-size: 12px; border: 1px solid #E5E7EB; border-radius: 6px; padding: 4px 8px; color: #374151; }
+  .status-bar { font-size: 12px; color: #D97706; background: #FFFBEB; padding: 8px 10px; border-radius: 6px; margin-bottom: 10px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+  .pulse { width: 8px; height: 8px; border-radius: 50%; background: #F59E0B; animation: pulse 1.5s infinite; flex-shrink: 0; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .p-card { background: white; border: 1px solid #E5E7EB; border-radius: 8px; padding: 10px 12px; margin-bottom: 6px; }
+  .p-card.done { background: #F0FDF4; border-color: #BBF7D0; opacity: 0.8; }
+  .p-card.posting { border-color: #F59E0B; background: #FFFBEB; }
+  .p-card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .p-name { font-size: 12px; font-weight: 700; color: #1A1D23; }
+  .p-stars { color: #FBBF24; font-size: 11px; margin-left: auto; }
+  .p-biz { display: inline-block; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 600; margin-bottom: 3px; }
+  .p-biz.spa { background: #EDE9FE; color: #5B21B6; }
+  .p-biz.salon { background: #FEF9C3; color: #854D0E; }
+  .p-text { font-size: 10px; color: #6B7280; }
+  .p-status { font-size: 10px; font-weight: 700; margin-top: 4px; }
+  .p-status.done { color: #059669; }
+  .p-status.posting { color: #D97706; }
+  .p-status.pending { color: #9CA3AF; }
+  .screenshot-title { position: fixed; top: 0; left: 0; right: 380px; background: rgba(79,70,229,0.92); color: white; text-align: center; padding: 8px; font-size: 15px; font-weight: 700; z-index: 100; }
+  .screenshot-caption { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(26,29,35,0.88); color: white; text-align: center; padding: 8px 20px; font-size: 12px; z-index: 100; }
+</style>
+</head>
+<body>
+
+<div class="screenshot-title">Reply All — bulk replies with automatic pagination, hands-free</div>
+
+<div class="topbar">
+  <div class="logo">Google Business Profile</div>
+  <div class="nav">
+    <a href="#">Home</a>
+    <a href="#" class="active">Reviews</a>
+    <a href="#">Posts</a>
+  </div>
+</div>
+
+<div class="main">
+  <div class="google-area">
+    <div class="page-title">Reviews — Page 2</div>
+    <div class="page-subtitle">Auto-reply in progress...</div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <div class="avatar">SA</div>
+        <div><div class="reviewer-name">Sarah Ahmed</div><div class="review-meta">5 weeks ago · Serenity Spa</div></div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review-text">Amazing experience! Will definitely come back again.</div>
+      <div class="review-replied">Owner replied: "Dear Sarah, thank you for choosing Serenity Spa! We look forward to welcoming you back soon."</div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <div class="avatar" style="background:#FEF3C7;color:#D97706">NA</div>
+        <div><div class="reviewer-name">Naeem Anwar</div><div class="review-meta">4 weeks ago · House of Salons</div></div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review-text">Best interior designer in Lahore. Highly recommended!</div>
+      <div class="review-replied">Owner replied: "Dear Naeem, thank you for your kind words! We're so glad you're happy with the results."</div>
+    </div>
+
+    <div class="review-card posting">
+      <div class="review-header">
+        <div class="avatar" style="background:#FCE7F3;color:#DB2777">RK</div>
+        <div><div class="reviewer-name">Rimsha Khokhar</div><div class="review-meta">3 weeks ago · Serenity Spa</div></div>
+        <div class="stars">★★★★☆</div>
+      </div>
+      <div class="review-text">Great spa experience. The massage was very relaxing.</div>
+      <div class="posting-indicator">⟳ Posting reply...</div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <div class="avatar" style="background:#DBEAFE;color:#1D4ED8">AM</div>
+        <div><div class="reviewer-name">Adil Manzoor</div><div class="review-meta">2 weeks ago · Serenity Spa</div></div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="review-text">One of the best places in Islamabad for a relaxing day out.</div>
+    </div>
+  </div>
+
+  <div class="ai-panel">
+    <div class="panel-head">
+      <div class="panel-logo">
+        <svg width="14" height="14" viewBox="0 0 22 22"><polygon points="11,1 13.8,8 21,8.3 15.5,13 17.6,20 11,16.3 4.4,20 6.5,13 1,8.3 8.2,8" fill="white"/></svg>
+        <span>Review AI <span class="version">v6.1 · 17 Apr</span></span>
+      </div>
+    </div>
+    <div class="panel-tabs">
+      <div class="panel-tab active">Reviews</div>
+      <div class="panel-tab">Settings</div>
+    </div>
+    <div class="panel-body">
+      <div class="panel-actions">
+        <button class="btn-scan">⟳ Scan</button>
+        <button class="btn-stop">■ Stop</button>
+      </div>
+      <div class="tone-row">
+        <label>Tone:</label>
+        <select><option>Friendly</option></select>
+      </div>
+      <div class="status-bar">
+        <div class="pulse"></div>
+        Replying 3 of 11... | Page 2 of 3
+      </div>
+
+      <div class="p-card done">
+        <div class="p-card-head"><div class="p-name">Sarah Ahmed</div><div class="p-stars">★★★★★</div></div>
+        <div class="p-biz spa">Serenity Spa</div>
+        <div class="p-status done">✓ Posted</div>
+      </div>
+
+      <div class="p-card done">
+        <div class="p-card-head"><div class="p-name">Naeem Anwar</div><div class="p-stars">★★★★★</div></div>
+        <div class="p-biz salon">House of Salons</div>
+        <div class="p-status done">✓ Posted</div>
+      </div>
+
+      <div class="p-card posting">
+        <div class="p-card-head"><div class="p-name">Rimsha Khokhar</div><div class="p-stars">★★★★☆</div></div>
+        <div class="p-biz spa">Serenity Spa</div>
+        <div class="p-text">"Great spa experience. The massage was very relaxing..."</div>
+        <div class="p-status posting">⟳ Posting reply...</div>
+      </div>
+
+      <div class="p-card">
+        <div class="p-card-head"><div class="p-name">Adil Manzoor</div><div class="p-stars">★★★★★</div></div>
+        <div class="p-biz spa">Serenity Spa</div>
+        <div class="p-text">"One of the best places in Islamabad..."</div>
+        <div class="p-status pending">Queued</div>
+      </div>
+
+      <div class="p-card">
+        <div class="p-card-head"><div class="p-name">Bilal Khan</div><div class="p-stars">★★★★☆</div></div>
+        <div class="p-biz salon">House of Salons</div>
+        <div class="p-text">"Very professional, great haircut every time."</div>
+        <div class="p-status pending">Queued</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="screenshot-caption">Reply All works through every review on every page automatically. Click Stop at any time. Auto-pagination moves to the next page when the current one is done.</div>
+
+</body>
+</html>

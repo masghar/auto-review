@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use — GMB Review AI</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 15px; line-height: 1.7; color: #1A1D23; background: #F3F4F8; }
+    header { background: #4F46E5; color: #fff; padding: 32px 24px 28px; }
+    header .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    header .logo span { font-size: 22px; font-weight: 700; }
+    header .badge { display: inline-block; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 2px 10px; font-size: 12px; margin-left: 4px; }
+    header p { font-size: 14px; opacity: 0.8; margin-top: 4px; }
+    main { max-width: 820px; margin: 32px auto; padding: 0 20px 80px; }
+    .toc { background: #fff; border-radius: 12px; padding: 24px 28px; margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+    .toc h2 { font-size: 13px; font-weight: 700; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+    .toc ol { padding-left: 18px; }
+    .toc li { margin-bottom: 4px; }
+    .toc a { color: #4F46E5; text-decoration: none; font-size: 14px; }
+    .toc a:hover { text-decoration: underline; }
+    section { background: #fff; border-radius: 12px; padding: 32px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+    h2.section-title { font-size: 20px; font-weight: 700; color: #1A1D23; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .step-badge { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #4F46E5; color: #fff; border-radius: 50%; font-size: 15px; font-weight: 700; flex-shrink: 0; }
+    h3 { font-size: 16px; font-weight: 700; color: #374151; margin: 20px 0 8px; }
+    h3:first-of-type { margin-top: 0; }
+    p { margin-bottom: 10px; color: #374151; }
+    ul, ol { padding-left: 20px; margin-bottom: 12px; color: #374151; }
+    li { margin-bottom: 6px; }
+    code { background: #EEF2FF; color: #4338CA; padding: 1px 6px; border-radius: 4px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; }
+    a { color: #4F46E5; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .note { background: #EEF2FF; border-left: 3px solid #4F46E5; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 14px 0; font-size: 14px; color: #3730A3; }
+    .warn { background: #FFF7ED; border-left: 3px solid #F59E0B; padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 14px 0; font-size: 14px; color: #92400E; }
+    .rate-table, .tone-table, .trouble-table { width: 100%; border-collapse: collapse; margin: 12px 0 16px; font-size: 14px; }
+    .rate-table th, .tone-table th, .trouble-table th { background: #4F46E5; color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
+    .rate-table td, .tone-table td, .trouble-table td { padding: 9px 14px; border-bottom: 1px solid #E5E7EB; vertical-align: top; }
+    .rate-table tr:last-child td, .tone-table tr:last-child td, .trouble-table tr:last-child td { border-bottom: none; }
+    .rate-table tr:nth-child(even) td, .tone-table tr:nth-child(even) td, .trouble-table tr:nth-child(even) td { background: #F9FAFB; }
+    .field-label { font-weight: 600; color: #4F46E5; }
+    .faq-q { font-weight: 700; color: #1A1D23; margin-top: 18px; margin-bottom: 4px; }
+    footer { text-align: center; font-size: 12px; color: #9CA3AF; padding: 24px 20px; }
+    @media (max-width: 600px) { section { padding: 20px; } header { padding: 20px 16px; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <svg width="26" height="26" viewBox="0 0 22 22"><polygon points="11,1 13.8,8 21,8.3 15.5,13 17.6,20 11,16.3 4.4,20 6.5,13 1,8.3 8.2,8" fill="#fff"/></svg>
+    <span>GMB Review AI <span class="badge">v6.1.0</span></span>
+  </div>
+  <p>Setup &amp; How-To-Use Guide &mdash; Everything you need to get started in under 5 minutes</p>
+</header>
+
+<main>
+
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#api-key">Getting Your Free Gemini API Key</a></li>
+      <li><a href="#install">Installing the Extension</a></li>
+      <li><a href="#setup">First-Time Setup</a></li>
+      <li><a href="#generate">Generating &amp; Posting Replies</a></li>
+      <li><a href="#multi-profile">Managing Multiple Business Locations</a></li>
+      <li><a href="#tones">Tone Guide</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </div>
+
+  <!-- SECTION 1 -->
+  <section id="prerequisites">
+    <h2 class="section-title"><span class="step-badge">1</span> Prerequisites</h2>
+    <ul>
+      <li><strong>Browser:</strong> Google Chrome, Microsoft Edge, Brave, Arc, or any Chromium-based browser.</li>
+      <li><strong>Google account</strong> with access to Google Business Profile (at least one verified business location).</li>
+      <li><strong>Gemini API key</strong> — free to obtain; instructions in the next section.</li>
+      <li><strong>Developer Mode</strong> in Chrome — only needed if installing from source (not required for Chrome Web Store installs).</li>
+    </ul>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section id="api-key">
+    <h2 class="section-title"><span class="step-badge">2</span> Getting Your Free Gemini API Key</h2>
+
+    <h3>Step-by-Step</h3>
+    <ol>
+      <li>Open <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">https://aistudio.google.com/app/apikey</a> — sign in with any Google account.</li>
+      <li>Click <strong>"Create API key"</strong>.</li>
+      <li>Select an existing Google Cloud project or click "Create new project".</li>
+      <li>Copy the generated key — it starts with <code>AIza</code> and is approximately 39 characters long.</li>
+      <li>Store it somewhere safe (like a password manager). Treat it like a password — anyone with your key can use your quota.</li>
+    </ol>
+
+    <div class="note">You do not need a credit card to get a free Gemini API key. The free tier is activated automatically.</div>
+
+    <h3>Free Tier Rate Limits (Gemini 2.5 Flash)</h3>
+    <table class="rate-table">
+      <tr><th>Limit</th><th>Amount</th><th>What it means for you</th></tr>
+      <tr><td>Requests per minute (RPM)</td><td>15</td><td>Up to 15 review replies per minute</td></tr>
+      <tr><td>Requests per day</td><td>1,500</td><td>Up to 1,500 review replies per day</td></tr>
+      <tr><td>Tokens per month</td><td>1,000,000</td><td>Each reply uses ~500 tokens — about 2,000 replies/month free</td></tr>
+    </table>
+
+    <p><strong>Practical advice:</strong> For most small and medium businesses (under 50 pending reviews), the free tier is more than sufficient. The extension will show an orange <em>"Rate limited — wait a moment and retry"</em> message if you hit the RPM limit during a large bulk run. Simply wait 60 seconds and click <strong>Reply All</strong> again — it picks up exactly where it left off.</p>
+
+    <h3>Upgrading to a Paid Key</h3>
+    <p>If your review volume regularly exceeds the free tier, you can upgrade at the same Google AI Studio page. Paid billing is per token — at roughly 500 tokens per reply, the cost is a fraction of a cent per response. For most businesses the free tier is permanent.</p>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section id="install">
+    <h2 class="section-title"><span class="step-badge">3</span> Installing the Extension</h2>
+
+    <h3>From Chrome Web Store (Recommended)</h3>
+    <ol>
+      <li>Search for <strong>"GMB Review AI"</strong> on the Chrome Web Store, or open the direct listing link.</li>
+      <li>Click <strong>"Add to Chrome"</strong>.</li>
+      <li>Confirm the permissions prompt — click "Add extension".</li>
+      <li>The star icon (<strong>★</strong>) appears in your Chrome toolbar. Done.</li>
+    </ol>
+
+    <h3>From Source (Developer Install)</h3>
+    <ol>
+      <li>Download or clone the repository to your computer.</li>
+      <li>Open Chrome and go to <code>chrome://extensions</code>.</li>
+      <li>Enable <strong>"Developer mode"</strong> using the toggle in the top-right corner.</li>
+      <li>Click <strong>"Load unpacked"</strong> and select the folder containing <code>manifest.json</code>.</li>
+      <li>The GMB Review AI star icon appears in the Chrome toolbar.</li>
+    </ol>
+    <div class="note">After updating the source files, go to <code>chrome://extensions</code> and click the refresh icon on the GMB Review AI card, then reload your Google Business Profile tab. The version number in the panel header confirms you have the latest build.</div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section id="setup">
+    <h2 class="section-title"><span class="step-badge">4</span> First-Time Setup</h2>
+
+    <h3>Step 4.1 — Open the Panel</h3>
+    <ol>
+      <li>Navigate to <a href="https://business.google.com/reviews" target="_blank" rel="noopener">https://business.google.com/reviews</a>.</li>
+      <li>The GMB Review AI side panel opens automatically on the right side of the page. If it doesn't, click the <strong>★ FAB button</strong> (floating star button at the bottom-right of the page) or click the extension icon in the Chrome toolbar.</li>
+    </ol>
+
+    <h3>Step 4.2 — Add Your Gemini API Key</h3>
+    <ol>
+      <li>Click the <strong>Settings</strong> tab in the panel.</li>
+      <li>Paste your Gemini API key into the <strong>"Gemini API Key"</strong> field.</li>
+      <li>Select your default <strong>Reply Tone</strong> (you can change this per session).</li>
+      <li>Click <strong>"Save All Settings"</strong>.</li>
+    </ol>
+
+    <h3>Step 4.3 — Add Your Business Profile(s)</h3>
+    <ol>
+      <li>In the Settings tab, click <strong>"+ Add Profile"</strong>.</li>
+      <li>A new profile card appears — expand it and fill in all fields:</li>
+    </ol>
+
+    <table class="tone-table" style="margin-top:10px">
+      <tr><th>Field</th><th>Description</th><th>Example</th></tr>
+      <tr><td><span class="field-label">Label</span></td><td>Your internal name for this profile (shown in the panel only)</td><td>Serenity Spa – F7</td></tr>
+      <tr><td><span class="field-label">Business Name</span></td><td>Must match how Google shows this business in the reviews feed — see tip below</td><td>Serenity Spa</td></tr>
+      <tr><td><span class="field-label">Business Type</span></td><td>Short description giving Gemini context</td><td>luxury day spa</td></tr>
+      <tr><td><span class="field-label">City</span></td><td>Used for geographic context in replies</td><td>Islamabad</td></tr>
+      <tr><td><span class="field-label">Services</span></td><td>Comma-separated list of main services</td><td>massage, facial, manicure, bridal</td></tr>
+      <tr><td><span class="field-label">SEO Keywords</span></td><td>1–3 phrases to weave naturally into replies (do not force them in)</td><td>best spa Islamabad, F7 spa</td></tr>
+      <tr><td><span class="field-label">Custom Instructions</span></td><td>Any fixed rules for every reply from this profile</td><td>Always mention our loyalty card.</td></tr>
+    </table>
+
+    <div class="note"><strong>Business Name matching tip:</strong> Google may display your business as <em>"Serenity Spa – F7 (Ladies)"</em> in the reviews feed. Set the Business Name field to any unique substring — e.g. <code>Serenity Spa</code>. The extension does a fuzzy contains-match, so you don't need the full name. After scanning, check the purple badge on each review card to confirm the correct profile was matched.</div>
+
+    <ol start="3">
+      <li>Click <strong>"+ Add Profile"</strong> again for each additional business location.</li>
+      <li>Click <strong>"Save All Settings"</strong> when you are done.</li>
+    </ol>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section id="generate">
+    <h2 class="section-title"><span class="step-badge">5</span> Generating &amp; Posting Replies</h2>
+
+    <h3>Scan Reviews</h3>
+    <ol>
+      <li>Click the <strong>Reviews</strong> tab in the panel.</li>
+      <li>Click <strong>"Scan Reviews"</strong>. The extension scans the page and loads all pending reviews into the panel list.</li>
+      <li>Each card shows the reviewer name, star rating, a text snippet, the date, and a purple badge showing which business profile was matched.</li>
+    </ol>
+
+    <h3>Generate One Reply</h3>
+    <ol>
+      <li>Select the <strong>Reply Tone</strong> from the dropdown at the top of the Reviews tab.</li>
+      <li>Click <strong>"Generate"</strong> on any review card.</li>
+      <li>Gemini writes a 1–2 sentence, personalised reply in about 2–3 seconds.</li>
+      <li>Read the reply — it is directly editable in the card. Change anything you like.</li>
+      <li>Click <strong>"Post"</strong>. The extension scrolls to the review, clicks Google's Reply button, fills the textarea, and submits automatically.</li>
+    </ol>
+
+    <h3>Reply All (Bulk Mode)</h3>
+    <ol>
+      <li>After scanning, click <strong>"Reply All"</strong>.</li>
+      <li>The extension automatically generates and posts a reply for every pending review on the current page.</li>
+      <li>When it finishes the current page, it clicks Google's "Next page" button and continues — working through all pages without any input from you.</li>
+      <li>Watch the <strong>Activity Log</strong> (expand it at the bottom of the panel) for real-time progress — every step is logged.</li>
+      <li>Click <strong>"Stop"</strong> at any time to pause the process.</li>
+    </ol>
+    <div class="warn"><strong>Rate limit during bulk runs:</strong> If you have many reviews and hit the Gemini free tier limit (15 requests/minute), an orange message will appear in the log. The extension pauses — simply wait 60 seconds, then click Reply All again to continue.</div>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section id="multi-profile">
+    <h2 class="section-title"><span class="step-badge">6</span> Managing Multiple Business Locations</h2>
+    <p>If you manage more than one business, add a profile for each location in Settings. The extension automatically matches each review to the correct profile based on the business name shown on the Google review card.</p>
+    <p>The <strong>purple badge</strong> on each review card in the panel shows which profile was matched (e.g., <em>"Serenity Spa"</em> or <em>"House of Salons"</em>). Always check these badges after scanning to verify the matching is correct before running Reply All.</p>
+    <p>If a review doesn't match any profile (e.g., a new location not yet in Settings), it will fall back to your first profile. Add a profile for the new location and re-scan.</p>
+    <div class="note">The extension reads whatever business name Google shows in the review card section headers. Open your Google reviews page, look at what text appears above or near each set of reviews, and use that as your Business Name field value.</div>
+  </section>
+
+  <!-- SECTION 7 -->
+  <section id="tones">
+    <h2 class="section-title"><span class="step-badge">7</span> Tone Guide</h2>
+    <table class="tone-table">
+      <tr><th>Tone</th><th>Style</th><th>Best for</th></tr>
+      <tr><td><strong>Friendly</strong></td><td>Warm, casual, uses first name, welcoming</td><td>Restaurants, cafes, salons, spas, bakeries</td></tr>
+      <tr><td><strong>Professional</strong></td><td>Formal but approachable, polished</td><td>IT firms, clinics, law offices, accountants</td></tr>
+      <tr><td><strong>Concise</strong></td><td>Short, neutral, direct — no fluff</td><td>High-volume accounts, petrol stations, pharmacies</td></tr>
+      <tr><td><strong>Empathetic</strong></td><td>Acknowledges feelings first, then responds</td><td>Negative reviews, sensitive services, healthcare</td></tr>
+      <tr><td><strong>Enthusiastic</strong></td><td>Energetic, upbeat, exclamation-heavy</td><td>Gyms, event venues, entertainment, fashion</td></tr>
+    </table>
+    <p>You can change the tone per-session using the dropdown in the Reviews tab. The setting is not saved between sessions — it resets to your default tone set in Settings.</p>
+  </section>
+
+  <!-- SECTION 8 -->
+  <section id="troubleshooting">
+    <h2 class="section-title"><span class="step-badge">8</span> Troubleshooting</h2>
+    <table class="trouble-table">
+      <tr><th>Symptom</th><th>Likely Cause</th><th>Fix</th></tr>
+      <tr><td>Panel does not appear</td><td>Extension not enabled or page not fully loaded</td><td>Go to <code>chrome://extensions</code>, verify the extension is enabled and not in an error state; reload the Google reviews page</td></tr>
+      <tr><td>"No reviews found"</td><td>Wrong URL or reviews tab not selected</td><td>Ensure you are on <code>business.google.com/reviews</code> — not a different GBP page</td></tr>
+      <tr><td>All reviews show the wrong business name</td><td>Business Name field doesn't match how Google labels reviews</td><td>Check the exact text Google shows for that business in the reviews feed; update the Business Name field in Settings to match any unique substring</td></tr>
+      <tr><td>"Invalid Gemini API key" error</td><td>Key was pasted incorrectly or has expired</td><td>Open Settings, clear the field, re-paste the key (no extra spaces); verify the key is active at <a href="https://aistudio.google.com/app/apikey" target="_blank">AI Studio</a></td></tr>
+      <tr><td>Rate limited message appears</td><td>Gemini free tier RPM exceeded (15 req/min)</td><td>Wait 60 seconds, then click Reply All again — it continues from where it stopped</td></tr>
+      <tr><td>Reply box doesn't open after clicking Post</td><td>Google updated their page structure</td><td>Reload the reviews page; if it persists across sessions, check for a newer extension version</td></tr>
+      <tr><td>Reply posted under wrong business</td><td>Profile matching is incorrect</td><td>Check the purple badge on the review card; update the Business Name field so it uniquely matches that location</td></tr>
+      <tr><td>Stars always show 0</td><td>Google changed their star markup</td><td>Open the Activity Log; look for <code>Stars:</code> lines; the extension falls back to text-based sentiment guessing — check the log for "Stars guessed from text" entries</td></tr>
+    </table>
+  </section>
+
+  <!-- SECTION 9 -->
+  <section id="faq">
+    <h2 class="section-title"><span class="step-badge">9</span> Frequently Asked Questions</h2>
+
+    <p class="faq-q">Does this cost anything?</p>
+    <p>The extension is completely free. You need a Gemini API key — the free tier provides 1,500 requests/day which covers most small and medium businesses. There is no subscription, no in-app purchase, and no premium tier.</p>
+
+    <p class="faq-q">Does the extension see my Google account password?</p>
+    <p>No. It works entirely through your existing browser session — the same session you already use to manage Google Business Profile. The extension never asks for, sees, or transmits your Google login credentials.</p>
+
+    <p class="faq-q">Is my data stored on your servers?</p>
+    <p>No. Your API key and all settings are stored only in Chrome's local storage (<code>chrome.storage.local</code>) on your own computer. Review text is sent directly from your browser to Google's Gemini API using your own key. The extension developer has zero access to any of this data.</p>
+
+    <p class="faq-q">Can I use this on multiple computers?</p>
+    <p>Settings are stored locally per browser profile. Chrome's <code>chrome.storage.local</code> is intentionally not synced across devices. You will need to re-enter your API key and profiles on each device. This is by design — it keeps your API key off the cloud.</p>
+
+    <p class="faq-q">What happens if Google changes their reviews page?</p>
+    <p>The extension reads Google's DOM structure to find review cards and reply buttons. If Google makes significant structural changes, some features may temporarily stop working. Check for an updated version of the extension in that case.</p>
+
+    <p class="faq-q">Can I edit the generated reply before posting?</p>
+    <p>Yes — the generated text appears in an editable text area inside the review card. Click anywhere in the text to edit it before clicking Post.</p>
+
+    <p class="faq-q">Does Reply All post immediately, or does it show me each reply first?</p>
+    <p>Reply All generates and posts each reply automatically without pausing for your review. If you want to check each reply before posting, use the one-at-a-time Generate → Post flow instead.</p>
+
+    <p class="faq-q">What Gemini model is used?</p>
+    <p>Gemini 2.5 Flash — Google's fastest model, optimised for short creative writing tasks. It generates review replies in 2–3 seconds each. Thinking mode is disabled to keep replies fast and under 50 words.</p>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 Muhammad Asghar &mdash; GMB Review AI v6.1.0 &mdash;
+  <a href="mailto:asghar.devops@gmail.com">asghar.devops@gmail.com</a>
+</footer>
+
+</body>
+</html>
