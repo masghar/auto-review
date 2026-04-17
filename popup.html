@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GMB Review AI</title>
+  <style>
+    body { width: 260px; background: #F8F9FC; color: #1A1D23; font-family: 'Google Sans', Roboto, Arial, sans-serif; font-size: 12px; margin: 0; }
+    .head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; background: #fff; border-bottom: 1px solid #E2E5EE; }
+    .head span { font-weight: 700; font-size: 14px; color: #4F46E5; }
+    .body { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+    p { color: #6B7280; font-size: 11px; line-height: 1.6; margin: 0; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 7px; width: 100%; padding: 10px; background: #4F46E5; color: #fff; border: none; border-radius: 8px; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+    .btn:hover { background: #4338CA; }
+    .note { background: #fff; border: 1px solid #E2E5EE; border-radius: 8px; padding: 10px 12px; color: #6B7280; font-size: 11px; line-height: 1.6; }
+    .note strong { color: #4F46E5; }
+    ol { margin: 6px 0 0; padding-left: 16px; display: flex; flex-direction: column; gap: 3px; }
+  </style>
+</head>
+<body>
+  <div class="head">
+    <svg width="18" height="18" viewBox="0 0 22 22"><polygon points="11,1 13.8,8 21,8.3 15.5,13 17.6,20 11,16.3 4.4,20 6.5,13 1,8.3 8.2,8" fill="#4F46E5"/></svg>
+    <span>GMB Review AI</span>
+  </div>
+  <div class="body">
+    <p>Opens Google Business Profile. The AI panel appears on the right side of your Reviews page.</p>
+    <button class="btn" id="openBtn">&#10024; Open Reviews Page</button>
+    <div class="note">
+      <strong>First time?</strong>
+      <ol>
+        <li>Click the button above</li>
+        <li>In the AI panel → go to <strong>Settings</strong> tab</li>
+        <li>Add your Gemini API key &amp; business info</li>
+        <li>Click <strong>Scan Reviews</strong> then <strong>Reply All</strong></li>
+      </ol>
+    </div>
+  </div>
+  <script>
+    document.getElementById('openBtn').addEventListener('click', function() {
+      chrome.tabs.create({ url: 'https://business.google.com/reviews' });
+    });
+  </script>
+</body>
+</html>

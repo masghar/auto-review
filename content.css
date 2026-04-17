@@ -1,0 +1,247 @@
+/* GMB Review AI v6 - content.css */
+
+#gmbAI6FAB {
+  position: fixed !important; bottom: 22px !important; right: 22px !important;
+  z-index: 2147483640 !important; background: #4F46E5 !important; color: #fff !important;
+  border: none !important; border-radius: 50px !important; padding: 10px 18px !important;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif !important; font-size: 13px !important;
+  font-weight: 600 !important; cursor: pointer !important;
+  box-shadow: 0 4px 16px rgba(79,70,229,0.4) !important; transition: transform 0.15s !important;
+}
+#gmbAI6FAB:hover { transform: translateY(-2px) !important; }
+
+#gmbAI6Panel {
+  position: fixed !important; top: 0 !important; right: 0 !important;
+  width: 370px !important; height: 100vh !important; background: #F8F9FC !important;
+  border-left: 1px solid #E2E5EE !important; box-shadow: -4px 0 20px rgba(0,0,0,0.09) !important;
+  z-index: 2147483641 !important; display: flex !important; flex-direction: column !important;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif !important; font-size: 13px !important;
+  color: #1A1D23 !important; overflow: hidden !important; box-sizing: border-box !important;
+}
+
+#gmbAI6Head {
+  display: flex !important; align-items: center !important; justify-content: space-between !important;
+  padding: 0 14px !important; height: 50px !important; background: #fff !important;
+  border-bottom: 1px solid #E2E5EE !important; flex-shrink: 0 !important;
+}
+.g6Logo { display: flex !important; align-items: center !important; gap: 8px !important; font-weight: 700 !important; font-size: 14px !important; color: #4F46E5 !important; }
+.g6HBtns { display: flex !important; gap: 2px !important; }
+.g6HBtns button {
+  background: none !important; border: none !important; cursor: pointer !important;
+  color: #9198B0 !important; font-size: 17px !important; width: 28px !important; height: 28px !important;
+  border-radius: 6px !important; display: flex !important; align-items: center !important;
+  justify-content: center !important; padding: 0 !important; line-height: 1 !important; transition: all 0.12s !important;
+}
+.g6HBtns button:hover { background: #F0F1F8 !important; color: #4F46E5 !important; }
+
+#gmbAI6Body { flex: 1 !important; overflow: hidden !important; display: flex !important; flex-direction: column !important; }
+
+#gmbAI6Tabs {
+  display: flex !important; background: #fff !important;
+  border-bottom: 1px solid #E2E5EE !important; flex-shrink: 0 !important; padding: 0 4px !important;
+}
+.g6Tab {
+  flex: 1 !important; background: none !important; border: none !important;
+  border-bottom: 2px solid transparent !important; color: #6B7280 !important;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif !important; font-size: 12px !important;
+  font-weight: 500 !important; padding: 10px 8px !important; cursor: pointer !important; transition: all 0.15s !important;
+}
+.g6Tab:hover { color: #4F46E5 !important; }
+.g6TabOn { color: #4F46E5 !important; border-bottom-color: #4F46E5 !important; font-weight: 600 !important; }
+
+.g6Pane {
+  flex: 1 !important; overflow-y: auto !important; display: flex !important; flex-direction: column !important;
+}
+.g6Pane::-webkit-scrollbar { width: 4px !important; }
+.g6Pane::-webkit-scrollbar-thumb { background: #D1D5E8 !important; border-radius: 4px !important; }
+
+#gmbAI6Controls {
+  padding: 10px 12px !important; background: #fff !important;
+  border-bottom: 1px solid #E2E5EE !important; flex-shrink: 0 !important;
+  display: flex !important; flex-direction: column !important; gap: 8px !important;
+}
+.g6Row { display: flex !important; align-items: center !important; gap: 7px !important; }
+.g6Label { font-size: 11px !important; color: #6B7280 !important; font-weight: 500 !important; flex-shrink: 0 !important; }
+
+#gmbAI6Tone {
+  flex: 1 !important; background: #F3F4F8 !important; border: 1px solid #E2E5EE !important;
+  color: #374151 !important; border-radius: 7px !important; padding: 6px 10px !important;
+  font-size: 12px !important; font-family: 'Google Sans', Roboto, Arial, sans-serif !important;
+  outline: none !important; cursor: pointer !important;
+}
+
+.g6Status { font-size: 11px !important; min-height: 14px !important; color: #6B7280 !important; line-height: 1.4 !important; }
+.g6Status.ok      { color: #059669 !important; }
+.g6Status.loading { color: #6B7280 !important; }
+.g6Status.warn    { color: #D97706 !important; }
+.g6Status.error   { color: #DC2626 !important; }
+
+#gmbAI6List {
+  flex: 1 !important; overflow-y: auto !important; padding: 10px !important;
+  display: flex !important; flex-direction: column !important; gap: 8px !important;
+}
+.g6Empty { padding: 28px 14px !important; text-align: center !important; color: #9198B0 !important; font-size: 12px !important; line-height: 1.7 !important; }
+.g6Empty strong { color: #4F46E5 !important; }
+
+.g6SummBar { display: flex !important; align-items: center !important; gap: 8px !important; padding: 4px 2px 8px !important; flex-shrink: 0 !important; flex-wrap: wrap !important; }
+.g6SummPend { font-size: 11px !important; font-weight: 600 !important; color: #92400E !important; background: #FEF3C7 !important; border: 1px solid #FDE68A !important; border-radius: 20px !important; padding: 2px 9px !important; }
+.g6SummDone { font-size: 11px !important; font-weight: 600 !important; color: #065F46 !important; background: #D1FAE5 !important; border: 1px solid #A7F3D0 !important; border-radius: 20px !important; padding: 2px 9px !important; margin-right: auto !important; }
+
+.g6Card {
+  background: #fff !important; border: 1px solid #E2E5EE !important; border-radius: 12px !important;
+  overflow: hidden !important; flex-shrink: 0 !important; box-shadow: 0 1px 4px rgba(0,0,0,0.05) !important; transition: all 0.15s !important;
+}
+.g6Card:hover { border-color: #C7CAE0 !important; box-shadow: 0 3px 10px rgba(0,0,0,0.07) !important; }
+.g6CardDone { opacity: 0.6 !important; border-left: 3px solid #34D399 !important; }
+
+.g6CardHead { display: flex !important; align-items: flex-start !important; gap: 9px !important; padding: 10px 12px 7px !important; }
+.g6Ava {
+  width: 32px !important; min-width: 32px !important; height: 32px !important; border-radius: 50% !important;
+  background: linear-gradient(135deg, #6366F1, #4F46E5) !important; color: #fff !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  font-weight: 700 !important; font-size: 13px !important; box-shadow: 0 2px 6px rgba(99,102,241,0.3) !important;
+}
+.g6CardMeta { flex: 1 !important; min-width: 0 !important; display: flex !important; flex-direction: column !important; gap: 2px !important; }
+.g6Name { font-weight: 600 !important; font-size: 13px !important; color: #111827 !important; display: block !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; }
+.g6Stars { font-size: 12px !important; color: #F59E0B !important; letter-spacing: 1.5px !important; }
+.g6Date { font-size: 10px !important; color: #9198B0 !important; }
+.g6Biz { font-size: 10px !important; color: #6B7280 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; }
+
+.g6Tag { font-size: 10px !important; font-weight: 600 !important; border-radius: 20px !important; padding: 3px 9px !important; white-space: nowrap !important; flex-shrink: 0 !important; align-self: flex-start !important; }
+.g6TagPend { background: #FEF3C7 !important; color: #92400E !important; border: 1px solid #FDE68A !important; }
+.g6TagDone { background: #D1FAE5 !important; color: #065F46 !important; border: 1px solid #A7F3D0 !important; }
+.g6TagLazy { background: #FEE2E2 !important; color: #991B1B !important; border: 1px solid #FECACA !important; }
+
+.g6CardText { padding: 0 12px 9px !important; font-size: 12px !important; color: #4B5563 !important; line-height: 1.6 !important; border-bottom: 1px solid #F0F1F8 !important; word-break: break-word !important; }
+.g6CardText em { color: #9198B0 !important; font-style: italic !important; }
+
+.g6CardCtrl { display: flex !important; align-items: center !important; gap: 7px !important; padding: 7px 12px !important; border-bottom: 1px solid #F0F1F8 !important; background: #FAFBFF !important; }
+.g6CardTone { flex: 1 !important; background: #fff !important; border: 1px solid #E2E5EE !important; color: #374151 !important; border-radius: 7px !important; padding: 4px 7px !important; font-size: 11px !important; font-family: 'Google Sans', Roboto, Arial, sans-serif !important; outline: none !important; cursor: pointer !important; }
+
+.g6RespArea { padding: 9px 12px !important; border-bottom: 1px solid #F0F1F8 !important; background: #FAFBFF !important; display: flex !important; flex-direction: column !important; gap: 6px !important; }
+.g6TA {
+  width: 100% !important; background: #fff !important; border: 1px solid #D1D5E8 !important;
+  color: #1A1D23 !important; border-radius: 8px !important; padding: 8px 10px !important;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif !important; font-size: 12px !important;
+  line-height: 1.65 !important; resize: vertical !important; min-height: 70px !important;
+  outline: none !important; box-sizing: border-box !important; transition: border-color 0.15s, box-shadow 0.15s !important;
+}
+.g6TA:focus { border-color: #4F46E5 !important; box-shadow: 0 0 0 3px rgba(79,70,229,0.1) !important; }
+.g6RespBtns { display: flex !important; gap: 6px !important; justify-content: flex-end !important; }
+
+.g6St { padding: 5px 12px !important; font-size: 11px !important; min-height: 20px !important; color: #6B7280 !important; line-height: 1.4 !important; word-break: break-word !important; }
+.g6StOk   { color: #059669 !important; font-weight: 500 !important; }
+.g6StErr  { color: #DC2626 !important; }
+.g6StLoad { color: #6B7280 !important; }
+
+#gmbAI6Pager { padding: 8px 12px !important; background: #fff !important; border-top: 1px solid #E2E5EE !important; flex-shrink: 0 !important; display: flex !important; flex-direction: column !important; gap: 6px !important; }
+.g6PageLbl { font-size: 11px !important; color: #6B7280 !important; font-weight: 500 !important; }
+
+.g6Btn {
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  gap: 5px !important; padding: 7px 13px !important; border-radius: 8px !important;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif !important; font-size: 12px !important;
+  font-weight: 600 !important; cursor: pointer !important; border: 1px solid transparent !important;
+  transition: all 0.15s !important; white-space: nowrap !important; line-height: 1.3 !important;
+}
+.g6Btn:disabled { opacity: 0.38 !important; cursor: not-allowed !important; }
+.g6BtnSm    { padding: 5px 10px !important; font-size: 11px !important; }
+.g6BtnFull  { width: 100% !important; justify-content: center !important; }
+.g6BtnGray  { background: #F3F4F8 !important; color: #374151 !important; border-color: #E2E5EE !important; }
+.g6BtnGray:not(:disabled):hover  { background: #E8EAF4 !important; }
+.g6BtnPurple { background: #4F46E5 !important; color: #fff !important; box-shadow: 0 2px 8px rgba(79,70,229,0.3) !important; }
+.g6BtnPurple:not(:disabled):hover { background: #4338CA !important; }
+.g6BtnBlue  { background: #EEF2FF !important; color: #4F46E5 !important; border-color: #C7D2FE !important; }
+.g6BtnBlue:not(:disabled):hover  { background: #E0E7FF !important; }
+.g6BtnGreen { background: #059669 !important; color: #fff !important; box-shadow: 0 2px 6px rgba(5,150,105,0.2) !important; }
+.g6BtnGreen:not(:disabled):hover { background: #047857 !important; }
+
+#gmbAI6SettingsForm { padding: 14px !important; display: flex !important; flex-direction: column !important; gap: 12px !important; }
+.g6Field { display: flex !important; flex-direction: column !important; gap: 4px !important; }
+.g6FieldLbl { font-size: 10px !important; font-weight: 600 !important; color: #374151 !important; text-transform: uppercase !important; letter-spacing: 0.04em !important; }
+.g6Req { color: #DC2626 !important; }
+.g6InputRow { display: flex !important; gap: 5px !important; }
+.g6InputRow input { flex: 1 !important; }
+
+#gmbAI6Panel input[type="text"],
+#gmbAI6Panel input[type="password"],
+#gmbAI6Panel select,
+#gmbAI6Panel textarea {
+  background: #fff !important; border: 1px solid #D1D5E8 !important; color: #1A1D23 !important;
+  border-radius: 8px !important; padding: 7px 10px !important;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif !important; font-size: 12px !important;
+  outline: none !important; width: 100% !important; box-sizing: border-box !important;
+  transition: border-color 0.15s, box-shadow 0.15s !important; appearance: none !important; -webkit-appearance: none !important;
+}
+#gmbAI6Panel input:focus, #gmbAI6Panel select:focus, #gmbAI6Panel textarea:focus {
+  border-color: #4F46E5 !important; box-shadow: 0 0 0 3px rgba(79,70,229,0.1) !important;
+}
+#gmbAI6Panel input::placeholder, #gmbAI6Panel textarea::placeholder { color: #9198B0 !important; }
+#gmbAI6Panel textarea { resize: vertical !important; min-height: 52px !important; line-height: 1.5 !important; }
+
+.g6IconBtn { background: #F3F4F8 !important; border: 1px solid #E2E5EE !important; border-radius: 7px !important; color: #6B7280 !important; padding: 6px 9px !important; cursor: pointer !important; font-size: 13px !important; flex-shrink: 0 !important; transition: all 0.12s !important; }
+.g6IconBtn:hover { background: #E8EAF4 !important; color: #4F46E5 !important; }
+
+.g6Hint { font-size: 10px !important; color: #9198B0 !important; }
+.g6Link { color: #4F46E5 !important; text-decoration: none !important; cursor: pointer !important; font-size: 11px !important; }
+.g6Link:hover { text-decoration: underline !important; }
+
+.g6SaveMsg { font-size: 12px !important; color: #059669 !important; text-align: center !important; font-weight: 500 !important; background: #D1FAE5 !important; border: 1px solid #A7F3D0 !important; border-radius: 8px !important; padding: 7px !important; }
+.g6KeyWarn { background: #FEF2F2 !important; border: 1px solid #FECACA !important; border-radius: 8px !important; color: #B91C1C !important; font-size: 11px !important; padding: 8px 10px !important; line-height: 1.5 !important; }
+
+#gmbAI6LogWrap { border-top: 1px solid #E2E5EE !important; background: #fff !important; flex-shrink: 0 !important; }
+.g6LogToggle { width: 100% !important; background: none !important; border: none !important; cursor: pointer !important; color: #9198B0 !important; font-size: 10px !important; text-transform: uppercase !important; letter-spacing: 0.07em !important; font-weight: 500 !important; padding: 6px 12px !important; text-align: left !important; display: flex !important; align-items: center !important; gap: 6px !important; font-family: 'Google Sans', Roboto, Arial, sans-serif !important; transition: color 0.12s !important; }
+.g6LogToggle:hover { color: #4F46E5 !important; }
+#gmbAI6LogBadge { background: #EEF2FF !important; border: 1px solid #C7D2FE !important; color: #4F46E5 !important; border-radius: 20px !important; padding: 0 6px !important; font-size: 9px !important; font-weight: 600 !important; min-width: 16px !important; text-align: center !important; }
+#gmbAI6LogArr { margin-left: auto !important; }
+#gmbAI6Log { max-height: 100px !important; overflow-y: auto !important; background: #FAFBFF !important; }
+.g6LogRow { padding: 2px 12px !important; font-family: 'SF Mono', Consolas, monospace !important; font-size: 10px !important; color: #6B7280 !important; border-bottom: 1px solid #F0F1F8 !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; }
+
+/* ── Multi-profile styles ─────────────────────────────────────── */
+.g6Divider { height: 1px !important; background: #E2E5EE !important; margin: 4px 0 !important; }
+
+.g6ProfilesHeader {
+  display: flex !important; align-items: center !important;
+  justify-content: space-between !important; padding: 2px 0 !important;
+}
+
+.g6ProfileNote {
+  font-size: 10px !important; color: #9198B0 !important; line-height: 1.5 !important;
+  margin-bottom: 8px !important;
+}
+
+#gmbAI6ProfileList { display: flex !important; flex-direction: column !important; gap: 7px !important; }
+
+.g6ProfileCard {
+  background: #F8F9FC !important; border: 1px solid #E2E5EE !important;
+  border-radius: 8px !important; overflow: hidden !important;
+}
+
+.g6ProfileCardHead {
+  display: flex !important; align-items: center !important;
+  justify-content: space-between !important; padding: 8px 10px !important;
+  background: #fff !important; cursor: pointer !important;
+}
+
+.g6ProfileLabel { font-size: 12px !important; font-weight: 600 !important; color: #374151 !important; }
+
+.g6ProfileCardBtns { display: flex !important; gap: 4px !important; }
+
+.g6BtnDanger {
+  background: #FEF2F2 !important; color: #DC2626 !important;
+  border-color: #FECACA !important; padding: 4px 8px !important; font-size: 11px !important;
+}
+.g6BtnDanger:hover { background: #FEE2E2 !important; }
+
+.g6ProfileBody { padding: 10px !important; display: flex !important; flex-direction: column !important; gap: 8px !important; }
+
+.g6CardProfile {
+  padding: 4px 12px 6px !important; background: #FAFBFF !important;
+  border-bottom: 1px solid #F0F1F8 !important;
+}
+
+.g6ProfileBadge {
+  font-size: 10px !important; font-weight: 500 !important; color: #4F46E5 !important;
+  background: #EEF2FF !important; border: 1px solid #C7D2FE !important;
+  border-radius: 20px !important; padding: 2px 8px !important; display: inline-block !important;
+}
